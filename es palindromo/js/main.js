@@ -1,16 +1,29 @@
 // Chiedere all'utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
 
-const userWord = prompt("inserisci una parola");
+//input element
+const buttonEl = document.getElementById("button")
+const userWordEl = document.getElementById("text_input")
+const resultEl = document.getElementById("result")
 
-const reverseWord = reverseString(userWord); // salvo la stringa al contrario in una variabile
+buttonEl.addEventListener(
+    "click",
+    function(){
+        
+        const userWord = userWordEl.value
+        let outputMessage;
 
-if(userWord == reverseWord){
-    console.log(`la parola ${userWord} è palindroma`);
-} else {
-    console.log(`la parola ${userWord} non è palindroma`);
-}
+    const reverseWord = reverseString(userWord); // salvo la stringa al contrario in una variabile
 
+    if(userWord == reverseWord){
+    outputMessage = `la parola ${userWord} è palindroma`;
+    } else {
+    outputMessage = `la parola ${userWord} non è palindroma`;
+    }
+    //output element
+    resultEl.innerHTML = `${outputMessage}`
+        }
+)
 
 
 function reverseString(str) { // dichiaro una funzione che invertirà le stringhe
@@ -22,3 +35,5 @@ function reverseString(str) { // dichiaro una funzione che invertirà le stringh
     }
     return newString; // return della stringa al contrario
 }
+
+
